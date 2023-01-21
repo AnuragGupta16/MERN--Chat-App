@@ -8,10 +8,7 @@ const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const path = require("path");
 const cors = require('cors');
 // Cors 
-const corsOptions = {
-  origin: process.env.ALLOWED_CLIENTS.split(',')
-  // ['http://localhost:3000', 'http://localhost:5000', 'http://localhost:3300']
-}
+
 const corsOpts = {
   origin: '*',
 
@@ -37,7 +34,7 @@ dotenv.config();
 connectDB();
 const app = express();
 app.use(cors(corsOpts));
-app.use(cors(corsOptions))
+
 
 app.use(express.json()); // to accept json data
 
